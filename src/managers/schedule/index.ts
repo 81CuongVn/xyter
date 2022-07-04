@@ -8,19 +8,22 @@ import listDir from "../../helpers/listDir";
 import schedule from "node-schedule";
 
 export const start = async (client: Client) => {
-  logger.info("⏰ Started job management");
+  logger.info("Starting schedule manager...");
 
   const jobNames = await listDir("jobs");
-  if (!jobNames) return logger.warn("No available jobs found");
+  if (!jobNames) return logger.info("No jobs found");
 
   await Promise.all(
     jobNames.map(async (jobName) => {
       const job: IJob = await import(`../../jobs/${jobName}`);
 
       schedule.scheduleJob(job.options.schedule, async () => {
-        logger.verbose(`⏰ Performed the job "${jobName}"`);
+        logger.info(`Executed job ${jobName}!`);
         await job.execute(client);
       });
     })
-  );
+  ).then(async () => {
+    const list = schedule.scheduledJobs;
+    logger.silly(list);
+  });
 };

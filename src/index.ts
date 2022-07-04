@@ -1,6 +1,6 @@
 import { token, intents } from "./config/discord";
 
-import { Client, Collection } from "discord.js"; // discord.js
+import { Client } from "discord.js"; // discord.js
 
 import * as managers from "./managers";
 
@@ -10,9 +10,6 @@ const main = async () => {
   const client = new Client({
     intents,
   });
-
-  // Create command collection
-  client.commands = new Collection();
 
   await managers.start(client);
 

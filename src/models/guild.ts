@@ -58,7 +58,7 @@ const guildSchema = new Schema<IGuild>(
       },
       timeout: {
         type: Number,
-        default: 5,
+        default: 5000,
       },
       workRate: {
         type: Number,
@@ -66,7 +66,7 @@ const guildSchema = new Schema<IGuild>(
       },
       workTimeout: {
         type: Number,
-        default: 900,
+        default: 900000,
       },
     },
     embeds: {
@@ -118,7 +118,7 @@ const guildSchema = new Schema<IGuild>(
       },
       timeout: {
         type: Number,
-        default: 5,
+        default: 5000,
       },
     },
     welcome: {
