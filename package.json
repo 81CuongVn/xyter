@@ -42,7 +42,7 @@
     "i18next-fs-backend": "^1.1.4",
     "i18next-http-backend": "^1.4.0",
     "i18next-resources-to-backend": "^1.0.0",
-    "mongoose": "^6.2.3",
+    "mongoose": "^8.0.0",
     "node-schedule": "^2.1.0",
     "ts-node": "^10.7.0",
     "tsconfig-paths": "^4.0.0",
